@@ -8,9 +8,8 @@ nb=${ARGS[0]}
 
 function conv(){
 	jupyter nbconvert --to markdown $nb.ipynb
-	
-	python edit.py ${nb%.ipynb}.md ${ARGS[@]:1}  # Slice to the end of the array https://stackoverflow.com/questions/1335815/how-to-slice-an-array-in-bash
-#	mv ${nb%.ipynb}.md
+	#Pass in yaml tags if any.
+	python edit.py ${nb%.ipynb}.md ${ARGS[@]:1}  
 	mv ${nb%.ipynb}_files ../images/
 
 }
